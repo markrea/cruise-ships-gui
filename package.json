@@ -1,0 +1,14 @@
+{
+  "name": "cruise-ships",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --verbose"
+  },
+  "author": "Mark Rea",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^25.2.3"
+  }
+}

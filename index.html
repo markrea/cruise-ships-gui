@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div id="viewport">
+        <div id ="ports"></div>
+    </div>
+    <script src="src/controller.js"></script>
+    <script src="src/Itinerary.js"></script>
+    <script src="src/Port.js"></script>
+    <script>
+       
+        const itinerary = new Itinerary([
+            new Port('Dover'),
+            new Port('Rotterdam'),
+            new Port('Calais'),
+            new Port('New York')
+        ]);
+        const controller = new Controller();
+        controller.renderPorts(itinerary.ports)
+    </script>
+   
+</body>
+</html>
