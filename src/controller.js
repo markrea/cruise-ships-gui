@@ -3,6 +3,7 @@
     this.ship = ship
     
     this.initialiseSea();
+    this.HUD();
 
     document.querySelector('#sailbutton').addEventListener('click', () => {
         this.setSail();
@@ -57,7 +58,7 @@ Controller.prototype = {
         const nextPortIndex = currentPortIndex + 1;
         const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
             if (!nextPortElement) {
-                return alert('End of the line!');
+                return this.renderMessage('You have reached the end of the line!')
             }
             this.renderMessage(`Now departing ${ship.currentPort.name}`);
             ship.setSail();
@@ -67,6 +68,8 @@ Controller.prototype = {
             const shipLeft = parseInt(shipElement.style.left, 10);
             if (shipLeft === (nextPortElement.offsetLeft - 32)) {
                 ship.dock();
+                this.renderMessage(`Now arriving at ${ship.currentPort.name}`);
+                this.HUD();
                 clearInterval(sailInterval);
             };
 
@@ -85,6 +88,21 @@ Controller.prototype = {
         setTimeout(() => {
             viewport.removeChild(messageElement);
         }, 2000);
+    },
+    HUD() {
+        const ship = this.ship;
+        const currentPortElement = document.getElementById("currentPort");
+        if (ship.currentPort !== undefined) {
+            currentPortElement.textContent = `Current Port: ${ship.currentPort.name}`;
+        }
+        const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+        const nextPortIndex = currentPortIndex + 1
+        const nextPortElement = document.getElementById("nextPort");
+        const nextPort = ship.itinerary.ports[nextPortIndex];
+        if(nextPort !== undefined) {
+            nextPortElement.textContent = `Next Port: ${nextPort.name}`; 
+        } else { nextPortElement.textContent = `This is the final Port`}
+        
     }
 
 };
