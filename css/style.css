@@ -6,6 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Days One', sans-serif;
 }
 #viewport {
     width: 640px;
@@ -67,5 +68,25 @@ body {
     top: 20px;
     right: 20px;
     font-size: 35px;
-    font-family: 'Days One', sans-serif;
+  }
+  #form-style {
+      background: white;
+      position: absolute;
+      top:20px;
+      left: 20px;
+      font-size: 35px;
+      text-align: center;
+      border-style: double;
+      border-width: 15px;
+      padding: 25px;
+  }
+  #new-port {
+      text-align: center;
+      border-style: ;
+  }
+  #add-port {
+    background-color: red;
+    color: white;
+    font-size: 25px;
+    
   }
